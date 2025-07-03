@@ -1,6 +1,6 @@
 services:
-  idp_insights.service:
-    class: Drupal\idp_insights\IdpInsightService
+  drupal_insight_backstage.service:
+    class: Drupal\drupal_insight_backstage\IdpInsightService
     arguments:
       [
         "@system.manager",

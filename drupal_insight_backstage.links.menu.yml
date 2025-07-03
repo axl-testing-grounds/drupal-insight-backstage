@@ -1,0 +1,6 @@
+drupal_insight_backstage.settings_form:
+  title: "Drupal Insight Backstage Setting"
+  description: "Configure Drupal Insight Backstage."
+  parent: system.admin_config_system
+  route_name: drupal_insight_backstage.settings_form
+  weight: 10

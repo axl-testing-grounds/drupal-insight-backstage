@@ -1,0 +1,5 @@
+name: Drupal Insight Backstage
+type: module
+description: Provides data from Drupal to Backstage.io plugin
+package: Backstage Integration
+core_version_requirement: ^9 || ^10 || ^11

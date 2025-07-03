@@ -1,7 +1,7 @@
-# Schema for the configuration files of the idp_insights module.
-idp_insights.settings:
+# Schema for the configuration files of the drupal_insight_backstage module.
+drupal_insight_backstage.settings:
   type: config_object
-  label: "IDP Indights settings"
+  label: "Drupal Insight Backstage Settings"
   mapping:
     api_key:
       type: string

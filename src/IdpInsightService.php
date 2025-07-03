@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\idp_insights;
+namespace Drupal\drupal_insight_backstage;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleExtensionList;
@@ -193,7 +193,7 @@ class IdpInsightService {
    * Check if valid request.
    */
   public function checkIfValidRequest($api_key) {
-    $config = $this->configFactory->get('idp_insights.settings');
+    $config = $this->configFactory->get('drupal_insight_backstage.settings');
     $configApiKey = $config->get('api_key');
     if (empty($api_key) || empty($configApiKey) || $api_key !== $configApiKey) {
       return FALSE;

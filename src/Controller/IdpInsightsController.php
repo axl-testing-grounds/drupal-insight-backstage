@@ -1,23 +1,23 @@
 <?php
 
-namespace Drupal\idp_insights\Controller;
+namespace Drupal\drupal_insight_backstage\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\idp_insights\IdpInsightService;
+use Drupal\drupal_insight_backstage\IdpInsightService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Returns responses for idp_insights routes.
+ * Returns responses for drupal_insight_backstage routes.
  */
 class IdpInsightsController extends ControllerBase {
 
 
   /**
-   * IDP Insight Service.
+   * Drupal Insight Backstage Service.
    *
-   * @var \Drupal\idp_insights\IdpInsightService
+   * @var \Drupal\drupal_insight_backstage\IdpInsightService
    */
   protected $idpService;
 
@@ -26,15 +26,15 @@ class IdpInsightsController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('idp_insights.service'),
+      $container->get('drupal_insight_backstage.service'),
     );
   }
 
   /**
    * Constructs a SystemInfoController object.
    *
-   * @param \Drupal\idp_insights\IdpInsightService $idp_service
-   *   IDP Insight service.
+   * @param \Drupal\drupal_insight_backstage\IdpInsightService $idp_service
+   *   Drupal Insight Backstage Service.
    */
   public function __construct(IdpInsightService $idp_service) {
     $this->idpService = $idp_service;
