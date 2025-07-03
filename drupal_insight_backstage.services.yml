@@ -7,5 +7,5 @@ services:
         "@extension.list.module",
         "@entity_type.manager",
         "@module_handler",
-        "@config.factory",
+        "@state",
       ]

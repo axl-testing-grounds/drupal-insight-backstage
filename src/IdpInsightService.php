@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleExtensionList;
 use Drupal\system\SystemManager;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Config\ConfigFactoryInterface;
+use \Drupal\Core\State\StateInterface;
 
 /**
  * Service description.
@@ -42,11 +42,11 @@ class IdpInsightService {
   protected $moduleHandler;
 
   /**
-   * The config factory.
+   * The state storage.
    *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   * @var \Drupal\Core\State\StateInterface
    */
-  protected $configFactory;
+  protected $state;
 
   /**
    * Constructs an IdpInsightService object.
@@ -59,15 +59,15 @@ class IdpInsightService {
    *   The entity type manager.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config facotory.
+   * @param \Drupal\Core\State\StateInterface  $state
+   *   The state factory.
    */
-  public function __construct(SystemManager $system_manager, ModuleExtensionList $extension_list_module, EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, ConfigFactoryInterface $config_factory) {
+  public function __construct(SystemManager $system_manager, ModuleExtensionList $extension_list_module, EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, StateInterface $state) {
     $this->systemManager = $system_manager;
     $this->extensionListModule = $extension_list_module;
     $this->entityTypeManager = $entity_type_manager;
     $this->moduleHandler = $module_handler;
-    $this->configFactory = $config_factory;
+    $this->state = $state;
   }
 
   /**
@@ -193,9 +193,8 @@ class IdpInsightService {
    * Check if valid request.
    */
   public function checkIfValidRequest($api_key) {
-    $config = $this->configFactory->get('drupal_insight_backstage.settings');
-    $configApiKey = $config->get('api_key');
-    if (empty($api_key) || empty($configApiKey) || $api_key !== $configApiKey) {
+    $stateApiKey = $this->state->get('drupal_insight_backstage.secret_key');
+    if (empty($api_key) || empty($stateApiKey) || $api_key !== $stateApiKey) {
       return FALSE;
     }
     return TRUE;
