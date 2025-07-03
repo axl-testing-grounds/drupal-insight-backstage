@@ -30,7 +30,8 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['api_key'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('API Key'),
+      '#title' => $this->t('Secret Key'),
+      '#description' => $this->t('Secret Key from backstage.io'),
       '#required' => TRUE,
       '#default_value' => $this->config('drupal_insight_backstage.settings')->get('api_key'),
     ];
