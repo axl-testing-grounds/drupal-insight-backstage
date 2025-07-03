@@ -1,8 +1,0 @@
-# Schema for the configuration files of the drupal_insight_backstage module.
-drupal_insight_backstage.settings:
-  type: config_object
-  label: "Drupal Insight Backstage Settings"
-  mapping:
-    api_key:
-      type: string
-      label: "Secret Key"
