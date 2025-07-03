@@ -11,7 +11,7 @@ drupal_insight_backstage.data:
 drupal_insight_backstage.settings_form:
   path: "/admin/config/system/drupal-insight-backstage"
   defaults:
-    _title: "drupal_insight_backstage settings"
+    _title: "Drupal Insight Backstage Settings"
     _form: 'Drupal\drupal_insight_backstage\Form\SettingsForm'
   requirements:
     _permission: "administer drupal_insight_backstage configuration"
